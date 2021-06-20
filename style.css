@@ -1,0 +1,114 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+:root{
+    --fill: 0%;
+    --sound: 100%;
+}
+
+body, html{
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    overscroll-behavior: none;
+    overflow-x: hidden;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 60%;
+    padding: clamp(0.5rem, 2vw, 2rem) clamp(0.5rem, 2vw, 2rem) 0 clamp(0.5rem, 2vw, 2rem);
+    border: solid 2px rebeccapurple;
+}
+
+.controller{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: clamp(50px, 10vw, 100px);
+    border-top: 2px solid ;
+}
+
+.activate{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.vol{
+    width: 20%;
+    height: clamp(15px, 3vw, 30px);
+    margin: 0 0 0 1rem;
+    border: 2px solid #e63946;
+    border-radius: 2rem;
+    position: relative;
+}
+
+.vol::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 2rem;
+    width: var(--sound);
+    height: 100%;
+    background-color: #1d3557;
+}
+
+.track{
+    margin: 0 clamp(.5rem, 2vw, 2rem);
+    width: 50%;
+    height: clamp(15px, 3vw, 30px);
+    border-radius: 1rem;
+    border: 2px solid #e63946;
+    flex-grow: 1;
+    position: relative;
+}
+
+.track::after{
+    content: '';
+    position: absolute;
+    font-size: 2rem;
+    top: 0;
+    left: 0;
+    background-color: #1d3557;
+    width: var(--fill);
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.dur-time{
+    color: #4cc9f0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: clamp(.8rem, 3vw, 1.5rem);
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.thumbnail{
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.volume-ic, .song-btn{
+    justify-self: flex-end;
+    height: 50%;
+    cursor: pointer;
+}
+
+@media (max-width: 680px){
+    .container{
+        width: 80%;
+    }
+}
