@@ -62,6 +62,7 @@ function resetProgress(){
     btn.classList.remove("play");
     btn.src = "./Assets/play.svg";
     time.innerText = "";
+    audio.currentTime = 0;
 }
 
 function updateProgress(percentage){
@@ -93,19 +94,19 @@ body.addEventListener("touchstart", (e) =>{
 })
 
 body.addEventListener("touchmove", (e)=>{
-    if(setMode == "Volume" && e.touches[0].clientY < startY && (e.touches[0].clientX > (startX-2) && e.touches[0].clientX < (startX+2))){
+    if(setMode == "Volume" && e.touches[0].clientY < startY && (e.touches[0].clientX > (startX-20) && e.touches[0].clientX < (startX+20))){
         startY = e.touches[0].clientY;
         volumeChange(1);
     }
-    else if(setMode == "Volume" && e.touches[0].clientY > startY && (e.touches[0].clientX > (startX-2) && e.touches[0].clientX < (startX+2))){
+    else if(setMode == "Volume" && e.touches[0].clientY > startY && (e.touches[0].clientX > (startX-20) && e.touches[0].clientX < (startX+20))){
         startY = e.touches[0].clientY;
         volumeChange(0);
     }
-    if(setMode == "track" && e.touches[0].clientX < startX && (e.touches[0].clientY > (startY-2) && e.touches[0].clientY < (startY+2))){
+    if(setMode == "track" && e.touches[0].clientX < startX && (e.touches[0].clientY > (startY-20) && e.touches[0].clientY < (startY+20))){
         startX = e.touches[0].clientX;
         trackChange(0); 
     }
-    else if(setMode == "track" && e.touches[0].clientX > startX && (e.touches[0].clientY > (startY-2) && e.touches[0].clientY < (startY+2))){
+    else if(setMode == "track" && e.touches[0].clientX > startX && (e.touches[0].clientY > (startY-20) && e.touches[0].clientY < (startY+20))){
         startX = e.touches[0].clientX;
         trackChange(1);
     }
