@@ -3,6 +3,8 @@ const audio = document.querySelector("audio");
 const body = document.querySelector("body");
 const time = document.querySelector(".dur-time");
 const volIc = document.querySelector(".volume-ic");
+const hint = document.getElementById("hint");
+const hintic = document.querySelector(".hint-ic")
 
 let screenWidth, screenHeight, midSize, startX, startY, setMode, volumeValue=100;
 let ismove = false;
@@ -145,6 +147,19 @@ volIc.addEventListener("click", () => {
         audio.volume = 0;
         volIc.src = "./Assets/volume-mute.svg";
         document.documentElement.style.setProperty(`--sound`, `0%`);
+    }
+});
+
+hintic.addEventListener("click", () => {
+    if(hint.classList.contains("hint-on")){
+        hint.classList.remove("hint-on");
+        hint.classList.add("hint-off");
+        hintic.src = "./Assets/question.svg";
+    }
+    else{
+        hint.classList.add("hint-on");
+        hint.classList.remove("hint-off");
+        hintic.src = "./Assets/close.svg";
     }
 });
 

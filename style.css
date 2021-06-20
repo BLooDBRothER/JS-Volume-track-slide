@@ -29,6 +29,42 @@ body{
     user-select: none;
 }
 
+.hint-ic{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.hint-on{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-size: 2rem;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(1rem);
+}
+
+.hint-off{
+    display: none;
+}
+
+ul{
+    padding: 2rem;
+    list-style: none;
+    background-color: rgba(107, 25, 25, 0.432);
+}
+
+li{
+    margin: 2rem 0;
+}
+
 .container{
     width: 60%;
     padding: clamp(0.5rem, 2vw, 2rem) clamp(0.5rem, 2vw, 2rem) 0 clamp(0.5rem, 2vw, 2rem);
