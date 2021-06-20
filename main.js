@@ -44,7 +44,7 @@ function volumeChange(value){
         volIc.src = value ? volIc.src : "./Assets/volume-mute.svg";
         return;
     } 
-    console.log(volumeValue);
+    //console.log(volumeValue);
     value ? (audio.volume = (++volumeValue) / 100) : (audio.volume = (--volumeValue) / 100);
     document.documentElement.style.setProperty(`--sound`, `${volumeValue}%`);
     if(volumeValue < 50){
@@ -77,7 +77,9 @@ function trackChange(value){
 }
 
 body.addEventListener("touchstart", (e) =>{
-    if(ismove){
+    if(isopen){
+        setMode = "";
+        console.log("done");
         return;
     }
     startY = e.touches[0].clientY;
@@ -147,7 +149,7 @@ body.addEventListener("mouseup", (e) => {
 });
 
 btn.addEventListener("click", () =>{
-    console.log(audio.duration);
+    //console.log(audio.duration);
     if(btn.classList.contains("play")){
         btn.classList.remove("play");
         btn.src = "./Assets/play.svg"
