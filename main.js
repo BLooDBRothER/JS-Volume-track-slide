@@ -4,11 +4,34 @@ const body = document.querySelector("body");
 const time = document.querySelector(".dur-time");
 const volIc = document.querySelector(".volume-ic");
 const hint = document.getElementById("hint");
-const hintic = document.querySelector(".hint-ic")
+const hintic = document.querySelector(".hint-ic");
+const prog = document.querySelectorAll(".cmn-prog");
 
 let screenWidth, screenHeight, midSize, startX, startY, setMode, volumeValue=100;
 let ismove = false;
+let isopen = true;
 const prevAudio = [];
+
+function showHint(){
+    if(hint.classList.contains("hint-on")){
+        isopen = false;
+        prog.forEach(progress => {
+            progress.style.display = "initial";
+        });
+        hint.classList.remove("hint-on");
+        hint.classList.add("hint-off");
+        hintic.src = "./Assets/question.svg";
+    }
+    else{
+        isopen = true;
+        prog.forEach(progress => {
+            progress.style.display = "none";
+        });
+        hint.classList.add("hint-on");
+        hint.classList.remove("hint-off");
+        hintic.src = "./Assets/close.svg";
+    }
+}
 
 function setScreenSize(){
     screenWidth = window.screen.availWidth;
@@ -96,7 +119,7 @@ body.addEventListener("mousedown", (e) => {
 });
 
 body.addEventListener("mousemove", (e) => {
-    if(ismove){
+    if(ismove && !isopen){
         if(setMode == "Volume" && e.clientY < startY && (e.clientX > (startX-20) && e.clientX < (startX+20))){
             startY = e.clientY;
             volumeChange(1);
@@ -151,16 +174,7 @@ volIc.addEventListener("click", () => {
 });
 
 hintic.addEventListener("click", () => {
-    if(hint.classList.contains("hint-on")){
-        hint.classList.remove("hint-on");
-        hint.classList.add("hint-off");
-        hintic.src = "./Assets/question.svg";
-    }
-    else{
-        hint.classList.add("hint-on");
-        hint.classList.remove("hint-off");
-        hintic.src = "./Assets/close.svg";
-    }
+    showHint();
 });
 
 audio.ontimeupdate = () =>{
@@ -169,4 +183,7 @@ audio.ontimeupdate = () =>{
     updateProgress(percentage);
 }
 
+
+
+showHint();
 window.onload = window.onresize = setScreenSize;
