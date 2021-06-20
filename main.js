@@ -77,6 +77,9 @@ function trackChange(value){
 }
 
 body.addEventListener("touchstart", (e) =>{
+    if(ismove){
+        return;
+    }
     startY = e.touches[0].clientY;
     startX = e.touches[0].clientX;
     if(e.touches[0].clientY > midSize){
