@@ -93,19 +93,19 @@ body.addEventListener("touchstart", (e) =>{
 })
 
 body.addEventListener("touchmove", (e)=>{
-    if(setMode == "Volume" && e.touches[0].clientY < startY && (e.touches[0].clientX > (startX-10) && e.touches[0].clientX < (startX+10))){
+    if(setMode == "Volume" && e.touches[0].clientY < startY && (e.touches[0].clientX > (startX-2) && e.touches[0].clientX < (startX+2))){
         startY = e.touches[0].clientY;
         volumeChange(1);
     }
-    else if(setMode == "Volume" && e.touches[0].clientY > startY && (e.touches[0].clientX > (startX-10) && e.touches[0].clientX < (startX+10))){
+    else if(setMode == "Volume" && e.touches[0].clientY > startY && (e.touches[0].clientX > (startX-2) && e.touches[0].clientX < (startX+2))){
         startY = e.touches[0].clientY;
         volumeChange(0);
     }
-    if(setMode == "track" && e.touches[0].clientX < startX && (e.touches[0].clientY > (startY-10) && e.touches[0].clientY < (startY+10))){
+    if(setMode == "track" && e.touches[0].clientX < startX && (e.touches[0].clientY > (startY-2) && e.touches[0].clientY < (startY+2))){
         startX = e.touches[0].clientX;
         trackChange(0); 
     }
-    else if(setMode == "track" && e.touches[0].clientX > startX && (e.touches[0].clientY > (startY-10) && e.touches[0].clientY < (startY+10))){
+    else if(setMode == "track" && e.touches[0].clientX > startX && (e.touches[0].clientY > (startY-2) && e.touches[0].clientY < (startY+2))){
         startX = e.touches[0].clientX;
         trackChange(1);
     }
