@@ -4,8 +4,6 @@
     box-sizing: border-box;
 }
 
-
-
 :root{
     --fill: 0%;
     --sound: 100%;
@@ -23,6 +21,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .container{
@@ -99,6 +103,7 @@ body{
 .thumbnail{
     margin-bottom: 1rem;
     width: 100%;
+    pointer-events: none;
 }
 
 .volume-ic, .song-btn{
